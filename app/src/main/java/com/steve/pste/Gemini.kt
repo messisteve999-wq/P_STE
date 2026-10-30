@@ -10,7 +10,7 @@ object Gemini {
         try {
             conn.requestMethod = "POST"
             conn.connectTimeout = 8000
-            conn.readTimeout = 40000
+            conn.readTimeout = 0
             conn.doOutput = true
             conn.setRequestProperty("Content-Type", "application/json")
             val body = JSONObject().put("message", message).toString()
