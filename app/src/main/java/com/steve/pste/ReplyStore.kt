@@ -49,7 +49,7 @@ object ReplyStore {
         return try {
             c.suggestion = Gemini.ask(
                 Prefs.url(ctx),
-                "Message reçu de ${c.name} sur WhatsApp : ${c.lastMsg}\nÉcris la réponse de Steve."
+                "Message reçu de ${c.name} sur la messagerie : ${c.lastMsg}\nÉcris la réponse de Steve."
             )
             c.error = ""
             true

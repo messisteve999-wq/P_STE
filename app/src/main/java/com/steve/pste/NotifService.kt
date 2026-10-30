@@ -12,7 +12,7 @@ class NotifService : NotificationListenerService() {
 
     override fun onNotificationPosted(sbn: StatusBarNotification) {
         val pkg = sbn.packageName
-        if (pkg != "com.whatsapp" && pkg != "com.whatsapp.w4b") return
+        if (pkg != "com.whatsapp" && pkg != "com.whatsapp.w4b" && pkg != "com.snapchat.android") return
         val n = sbn.notification
         if (n.flags and Notification.FLAG_GROUP_SUMMARY != 0) return
 
@@ -23,7 +23,7 @@ class NotifService : NotificationListenerService() {
         if (extras.getBoolean(Notification.EXTRA_IS_GROUP_CONVERSATION)) return
         val title = extras.getCharSequence(Notification.EXTRA_TITLE)?.toString() ?: return
         val text = extras.getCharSequence(Notification.EXTRA_TEXT)?.toString() ?: return
-        if (title == "WhatsApp" || title == "WhatsApp Business") return
+        if (title == "WhatsApp" || title == "WhatsApp Business" || title == "Snapchat") return
         if (text.contains("nouveaux messages") || text.contains("new messages") ||
             text.contains("Vérification")) return
 

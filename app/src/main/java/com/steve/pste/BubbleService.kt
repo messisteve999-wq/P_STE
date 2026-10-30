@@ -193,7 +193,7 @@ class BubbleService : Service() {
         for (c in items) {
             if (c.pkg != lastPkg) {
                 lastPkg = c.pkg
-                val h = tv(if (c.pkg == "com.whatsapp.w4b") "WhatsApp Business" else "WhatsApp", 14f, Color.parseColor("#34D399"), true)
+                val h = tv(when (c.pkg) { "com.whatsapp.w4b" -> "WhatsApp Business"; "com.snapchat.android" -> "Snapchat"; else -> "WhatsApp" }, 14f, Color.parseColor("#34D399"), true)
                 h.setPadding(0, dp(10), 0, dp(4))
                 l.addView(h)
             }
