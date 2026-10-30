@@ -1,0 +1,11 @@
+P_STE - projet Android (Kotlin)
+
+1) Termux : unzip P_STE.zip && cd P_STE
+2) git init && git add -A && git commit -m "P_STE"
+   git branch -M main
+   git remote add origin https://github.com/messisteve999-wq/P_STE.git
+   git push -u origin main
+   (le dossier .github doit etre envoye : il compile l'APK)
+3) GitHub > onglet Actions > "Build APK" > artefact "P_STE-apk" > telecharger app-debug.apk
+4) Installer l'APK, ouvrir P_STE, suivre les etapes 1, 2, 3.
+5) Dans Termux : cd ~/p_ste && node server.js &   (garder Termux ouvert)
