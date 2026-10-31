@@ -13,6 +13,7 @@ class MainActivity : Activity() {
 
     override fun onCreate(b: Bundle?) {
         super.onCreate(b)
+        Server.appCtx = applicationContext
         val d = resources.displayMetrics.density
         val l = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding((20 * d).toInt(), (40 * d).toInt(), (20 * d).toInt(), (20 * d).toInt()) }
         st = TextView(this)
