@@ -18,7 +18,7 @@ class MainActivity : Activity() {
         val l = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL; setPadding((20 * d).toInt(), (40 * d).toInt(), (20 * d).toInt(), (20 * d).toInt()) }
         st = TextView(this)
         fun btn(t: String, a: () -> Unit) { l.addView(Button(this).apply { text = t; setOnClickListener { a() } }) }
-        l.addView(TextView(this).apply { text = "P_STE v2"; textSize = 26f })
+        l.addView(TextView(this).apply { text = "P_STE v5"; textSize = 26f })
         l.addView(st)
         btn("1. Autoriser l'affichage par-dessus") { startActivity(Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:$packageName"))) }
         btn("2. Débloquer « paramètres restreints » (⋮ en haut à droite)") { startActivity(Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:$packageName"))) }
@@ -36,6 +36,7 @@ class MainActivity : Activity() {
                 Toast.makeText(this, r ?: "Serveur injoignable (node server.js lancé ?)", Toast.LENGTH_LONG).show()
             }
         }
+        btn("Paramètres (mes infos et consignes de l'IA)") { startActivity(Intent(this, SettingsActivity::class.java)) }
         setContentView(ScrollView(this).apply { addView(l) })
     }
 

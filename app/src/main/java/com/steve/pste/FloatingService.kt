@@ -95,8 +95,8 @@ class FloatingService : Service() {
     }
 
     private fun addBubble() {
-        val iv = ImageView(this).apply { setImageResource(R.drawable.ic_demon) }
-        val p = WindowManager.LayoutParams(dp(56), dp(56), WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
+        val iv = ImageView(this).apply { setImageResource(R.drawable.ic_dragon) }
+        val p = WindowManager.LayoutParams(dp(64), dp(64), WindowManager.LayoutParams.TYPE_APPLICATION_OVERLAY,
             WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE, PixelFormat.TRANSLUCENT)
         p.gravity = Gravity.TOP or Gravity.START; p.x = 0; p.y = dp(200)
         iv.setOnTouchListener(object : View.OnTouchListener {
@@ -234,7 +234,8 @@ class FloatingService : Service() {
     private fun listMenu(): List<Pair<String, () -> Unit>> = listOf(
         mi("⏳ Messagerie éphémère : ${ephLabel()}") { cycleEph(); showMenu(listMenu()) },
         mi("➕ Max par appli : ${Store.max}") { Store.max++; Store.save(); showMenu(listMenu()) },
-        mi("➖ Max par appli") { if (Store.max > 1) Store.max--; Store.save(); showMenu(listMenu()) }
+        mi("➖ Max par appli") { if (Store.max > 1) Store.max--; Store.save(); showMenu(listMenu()) },
+        mi("⚙️ Paramètres (mes infos, consignes IA)") { startActivity(Intent(this, SettingsActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)) }
     )
     private fun chatMenu(): List<Pair<String, () -> Unit>> = listOf(
         mi("⏳ Messagerie éphémère : ${ephLabel()}") { cycleEph(); showMenu(chatMenu()) },

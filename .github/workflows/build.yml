@@ -14,4 +14,4 @@ jobs:
         with: { gradle-version: 8.9 }
       - run: gradle assembleDebug --no-daemon
       - uses: actions/upload-artifact@v4
-        with: { name: P_STE_v1, path: app/build/outputs/apk/debug/app-debug.apk }
+        with: { name: P_STE_v5, path: app/build/outputs/apk/debug/app-debug.apk }
